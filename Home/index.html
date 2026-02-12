@@ -1,1 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>My Website</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Top Navigation -->
+  <header class="navbar">
+    <div class="logo">My Website</div>
+
+    <div class="support-menu">
+      <button class="support-btn">Support ▾</button>
+      <div class="dropdown">
+        <button onclick="goToReport()">Reporting</button>
+        <button onclick="secretAction()">Secret Button</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="content">
+    <h1>Welcome</h1>
+    <p>This is the homepage of my website.</p>
+  </main>
+
+  <script>
+    function goToReport() {
+      window.location.href = "https://ac1dst4r.github.io/Foundation/Report/";
+    }
+
+    function secretAction() {
+      window.location.href = "https://ac1dst4r.github.io/Foundation/Secret Button/";
+    }
+  </script>
+
+</body>
+</html>
 
