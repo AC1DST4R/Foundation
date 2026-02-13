@@ -7,26 +7,53 @@
 </head>
 <body>
 
-  <!-- Top Navigation -->
+  <!-- Navigation -->
   <header class="navbar">
     <div class="logo">My Website</div>
 
-    <div class="support-menu">
-      <button class="support-btn">Support ▾</button>
-      <div class="dropdown">
+    <div class="support-menu" id="supportMenu">
+      <button class="support-btn" aria-haspopup="true" aria-expanded="false">
+        Support ▾
+      </button>
+
+      <div class="dropdown" id="dropdownMenu">
         <button onclick="goToReport()">Reporting</button>
         <button onclick="secretAction()">Secret Button</button>
       </div>
     </div>
   </header>
 
-  <!-- Main Content -->
+  <!-- Main -->
   <main class="content">
     <h1>Welcome</h1>
     <p>This is the homepage of my website.</p>
   </main>
 
   <script>
+    const supportMenu = document.getElementById("supportMenu");
+    const dropdown = document.getElementById("dropdownMenu");
+    const supportBtn = supportMenu.querySelector(".support-btn");
+
+    let closeTimer;
+
+    function openMenu() {
+      clearTimeout(closeTimer);
+      dropdown.classList.add("open");
+      supportBtn.setAttribute("aria-expanded", "true");
+    }
+
+    function closeMenuDelayed() {
+      closeTimer = setTimeout(() => {
+        dropdown.classList.remove("open");
+        supportBtn.setAttribute("aria-expanded", "false");
+      }, 1000);
+    }
+
+    supportMenu.addEventListener("mouseenter", openMenu);
+    supportMenu.addEventListener("mouseleave", closeMenuDelayed);
+    dropdown.addEventListener("mouseenter", openMenu);
+    dropdown.addEventListener("mouseleave", closeMenuDelayed);
+
     function goToReport() {
       window.location.href = "https://ac1dst4r.github.io/Foundation/Report/";
     }
